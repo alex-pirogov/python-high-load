@@ -1,0 +1,28 @@
+[project]
+name = "python-high-load"
+version = "0.0.0"
+description = "Python transactional service which holds 10k write and 100k read RPS"
+readme = "README.md"
+requires-python = ">=3.13.9"
+dependencies = [
+    "litestar>=2.18.0",
+    "uvicorn>=0.38.0",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.14.4",
+]
+
+[tool.ruff]
+line-length = 99
+
+[tool.ruff.lint]
+select = ["C", "E", "F", "W", "B"]
+ignore = ["F541"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["app"]
+
+[tool.ruff.format]
+quote-style = "single"
